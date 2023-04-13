@@ -17,6 +17,8 @@ import { IndexDefaultComponent } from '../index-default/index-default.component'
 import { FormRokComponent } from '../../form/form-rok/form-rok.component';
 import { rokConfig } from './config';
 import { PVCProcessedObjectRok, PVCResponseObjectRok } from 'src/app/types';
+import { Router } from '@angular/router';
+import { ActionsService } from 'src/app/services/actions.service';
 
 @Component({
   selector: 'app-index-rok',
@@ -36,8 +38,19 @@ export class IndexRokComponent
     public snackBar: SnackBarService,
     public rok: RokService,
     public poller: PollerService,
+    public router: Router,
+    public actions: ActionsService,
   ) {
-    super(ns, confirmDialog, backend, dialog, snackBar, poller);
+    super(
+      ns,
+      confirmDialog,
+      backend,
+      dialog,
+      snackBar,
+      poller,
+      router,
+      actions,
+    );
   }
 
   ngOnInit() {
